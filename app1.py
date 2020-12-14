@@ -27,11 +27,10 @@ def home():
     message = "Money, Power and Politics"   
     return render_template("index.html", message = message)
 
-# Add a team page route 
 @app.route("/team")
-def team():    
+def home():    
     message = "Money, Power and Politics"   
-    return render_template ("team.html")
+    return render_template("team.html", message = message)
 
 # @app.route("/votersinfo")
 # def votersinfo():

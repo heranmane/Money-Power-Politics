@@ -62,8 +62,6 @@ Promise.all([
   console.log(chairs[0]);
   console.log(chairs[0].Candidate);
 
-  
-
   //Making Charts
   makeTable(chairs);
   //Call Bar Graph

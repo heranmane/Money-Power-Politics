@@ -206,53 +206,14 @@ function fiteredby_party(party) {
     if (party == "Democrat") {
       console.log(party)
       makeTable(chairs);
-      var partyColors = [
-        'rgb(72, 0, 0)',
-        'rgb(80,0,0)',
-        'rgb(88, 0, 0)',
-        'rgb(96, 0, 0)',
-        'rgb(104, 0, 0)',
-        'rgb(112, 0, 0)',
-        'rgb(120, 0, 0)',
-        'rgb(128, 0, 0)',
-        'rgb(136, 0, 0)',
-        'rgb(144, 0, 0)',
-        'rgb(152, 0, 0)',
-        'rgb(168, 0, 0)',
-        'rgb(176, 0, 0)',
-        'rgb(184, 0, 0)',
-        'rgb(192, 0, 0)',
-        'rgb(200, 0, 0)',
-        'rgb(232, 0, 0)',
-        'rgb(240, 0, 0)',
-        'rgb(248, 0, 0)',
-        'rgb(255, 0, 0)']
-        
-      
+      var partyColors = 
+      ['#F04C4C', '#E84A4B', '#DF4849', '#D74747', '#CE4546', '#C64344', '#BE4242', '#B64041', '#AE3E3F', '#A63C3D', '#9E3B3B', '#96393A', '#8E3738', '#863536', '#7E3334', '#763232', '#6F3030', '#672E2E', '#5F2C2C', '#582A2A']
 
       createDonut(votePercentC, CfullName, 'Chair Vote %', 'Chairs', 'pieChairs', partyColors);
     } else if (party == "Republican") {
       makeTable(ranking);
-      var partyColors = ['rgb(0,0,233)',
-        'rgb(0,0,229)',
-        'rgb(0,0,224)',
-        'rgb(0,0,213)',
-        'rgb(0,0,209)',
-        'rgb(0,0,193)',
-        'rgb(0,0,188)',
-        'rgb(0,0,168)',
-        'rgb(0,0,162)',
-        'rgb(0,0,139)',
-        'rgb(0,0,107)',
-        'rgb(0,0,100)',
-        'rgb(0,0,73)',
-        'rgb(0,0,66)',
-        'rgb(0,0,35)',
-        'rgb(0,0,43)',
-        'rgb(0,0,66)',
-        'rgb(0,0,35)',
-        'rgb(0,0,43)'
-      ]
+      var partyColors = ['#4878A6', '#4674A1', '#44719C', '#416D97', '#3F6A93', '#3D668E', '#3B6389', '#396084', '#375C80', '#35597B', '#335576', '#315272', '#2F4F6D', '#2D4B68', '#2B4864', '#294560', '#27425B', '#253E57', '#233B52', '#21384E']
+      
       
 
       var partyColors = 

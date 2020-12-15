@@ -209,7 +209,6 @@ function fiteredby_party(party) {
       var partyColors = [
         'rgb(72, 0, 0)',
         'rgb(80,0,0)',
-        // 'rgb(80, 0, 0)',
         'rgb(88, 0, 0)',
         'rgb(96, 0, 0)',
         'rgb(104, 0, 0)',
@@ -261,37 +260,15 @@ function fiteredby_party(party) {
     } else {
       makeTable(combined);
 
-      var partyColors = ['rgb(0,0,233)',
-        'rgb(0,0,224)',
-        'rgb(0,0,213)',
-        'rgb(0,0,209)',
-        'rgb(0,0,193)',
-        'rgb(0,0,188)',
-        'rgb(0,0,168)',
-        'rgb(0,0,162)',
-        'rgb(0,0,139)',
-        'rgb(0,0,107)',
-        'rgb(0,0,100)',
-        'rgb(0,0,73)',
-        'rgb(0,0,66)',
-        'rgb(0,0,35)',
-        'rgb(0,0,43)',
-        'rgb(224, 0, 0)',
-        'rgb(213, 0, 0)',
-        'rgb(209, 0, 0)',
-        'rgb(193, 0, 0)',
-        'rgb(188, 0, 0)',
-        'rgb(168, 0, 0)',
-        'rgb(162, 0, 0)',
-        'rgb(139, 0, 0)',
-        'rgb(107, 0, 0)',
-        'rgb(100, 0, 0)',
-        'rgb(73, 0, 0)',
-        'rgb(66, 0, 0)',
-        'rgb(35, 0, 0)',
-        'rgb(43, 0, 0)'
-
-      ]
+      var partyColors = ['#FA6E6E',
+        '#F66B70',
+        '#F26872',
+        '#EE6574', '#EA6275',
+        '#E56077', '#E15D79', '#DC5B7A',
+        '#D7597B', '#D2577C', '#CD557D',
+        '#C8547E', '#C3527F', '#BD517F',
+        '#BD517F', '#B84F80', '#B24E80', '#AC4D80', 
+        '#A64C80', '#A14B80', '#9B4980', '#95487F', '#8F477E', '#89467E', '#89467E', '#83457D', '#7D447B', '#77437A', '#714278', '#714278', '#6B4177', '#664075', '#603F73', '#5A3E71', '#543D6F', '#4F3B6C', '#493A6A', '#443967', '#3E3764', '#393661', '#34345E', '#2F335B', '#2A3158']
       createDonut(votePercentA, AfullName, 'All Votes %', 'All Senators', 'pieChairs', partyColors);
 
     }
@@ -422,13 +399,13 @@ const createScatter = function (t1_xVals, t1_yVals, t1_Name, t2_xVals, t2_yVals,
     name: t1_Name
   };
 
-  var trace3 = {
-    x: [3242360],
-    y: [0],
-    mode: 'lines',
-    type: 'scatter',
-    name: 'Chair V/$$'
-  };
+  // var trace3 = {
+  //   x: [3242360],
+  //   y: [0],
+  //   mode: 'lines',
+  //   type: 'scatter',
+  //   name: 'Chair V/$$'
+  // };
 
   var trace2 = {
     x: t2_xVals,
@@ -451,7 +428,7 @@ const createScatter = function (t1_xVals, t1_yVals, t1_Name, t2_xVals, t2_yVals,
   //   name: 'Ranking V/$$'
   // };
 
-  var data = [trace1, trace2, trace3];
+  var data = [trace1, trace2];
   var layout = {
     title: 'Contributions($$) to Votes',
     width: 700,

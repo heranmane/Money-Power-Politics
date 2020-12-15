@@ -6,19 +6,30 @@ function fiteredby_party(party) {
 
   //main function
   Promise.all([
-    d3.csv('../static/data/consolidated_Chairs.csv'),
-    d3.csv('../static/data/consolidated_Ranking.csv'),
+    d3.csv('../static/data/chairs.csv'),
+    d3.csv('../static/data/ranking.csv'),
     d3.csv('../static/data/combined.csv'),
+    d3.csv('../static/data/newcombined.csv'),
+
   ]).then(function (files) {
     chairs = files[0];
-
+    // console.log(chairs)
     ranking = files[1];
+    // console.log(ranking)
     combined = files[2]
+    combined_new = files[3]
 
-    // console.log(party)
+    console.log(party)
+    //  New Combined Senators Data for scatter
+    CNpartyvotespercent = [];
+    var i = 0;
+    for (i = 0; i < combined_new.length; i++) {
+      console.log(combined_new[i]);
+      CNpartyvotespercent.push(combined_new[i].Vote_Share);
+    }
 
 
-    // Combined Data  
+    // Combined Senators Data  
     AfullName = [];
     Avotes = [];
     Acommittee = [];
@@ -29,6 +40,7 @@ function fiteredby_party(party) {
     Astate = [];
     AstateAbbr = [];
     AstateVotesTot = [];
+    
 
     var i = 0;
     for (i = 0; i < combined.length; i++) {
@@ -39,6 +51,7 @@ function fiteredby_party(party) {
       AlastName.push(combined[i].First_Name);
       AstateAbbr.push(combined[i].State_Abbrv);
       Avotes.push(combined[i].Candidate_Votes);
+      // Avotes.push(combined[i].Vote_Share);
       Astate.push(combined[i].State);
       AstateVotesTot.push(combined[i].Total_Votes);
       Acontrib.push(combined[i].Contributions);
@@ -65,6 +78,7 @@ function fiteredby_party(party) {
       CfirstName.push(chairs[i].Last_Name);
       ClastName.push(chairs[i].First_Name);
       CstateAbbr.push(chairs[i].State_Abbrv);
+      // Cvotes.push(chairs [i].Vote_Share);
       Cvotes.push(chairs[i].Candidate_Votes);
       Cstate.push(chairs[i].State);
       CstateVotesTot.push(chairs[i].Total_Votes);
@@ -93,6 +107,7 @@ function fiteredby_party(party) {
       RfirstName.push(ranking[i].Last_Name);
       RlastName.push(ranking[i].First_Name);
       RstateAbbr.push(ranking[i].State_Abbrv);
+      // Rvotes.push(ranking[i].Vote_Share);
       Rvotes.push(ranking[i].Candidate_Votes);
       Rstate.push(ranking[i].State);
       RstateVotesTot.push(ranking[i].Total_Votes);
@@ -190,39 +205,37 @@ function fiteredby_party(party) {
     //Color and party onditions for Donut toggle 
     if (party == "Democrat") {
       console.log(party)
-      makeTable(ranking);
-
+      makeTable(chairs);
       var partyColors = [
+        'rgb(72, 0, 0)',
         'rgb(80,0,0)',
         // 'rgb(80, 0, 0)',
         'rgb(88, 0, 0)',
         'rgb(96, 0, 0)',
         'rgb(104, 0, 0)',
         'rgb(112, 0, 0)',
-        'rgb(88, 0, 0)',
+        'rgb(120, 0, 0)',
         'rgb(128, 0, 0)',
         'rgb(136, 0, 0)',
         'rgb(144, 0, 0)',
         'rgb(152, 0, 0)',
-        'rgb(72, 0, 0)',
         'rgb(168, 0, 0)',
         'rgb(176, 0, 0)',
         'rgb(184, 0, 0)',
         'rgb(192, 0, 0)',
-        'rgb(200, 0, 0)']
-      // [
-        // 'rgb(208, 0, 0)',
-        // 'rgb(216, 0, 0)',
-        // 'rgb(224, 0, 0)',
-        // 'rgb(232, 0, 0)',
-        // 'rgb(240, 0, 0)']
-
+        'rgb(200, 0, 0)',
+        'rgb(232, 0, 0)',
+        'rgb(240, 0, 0)',
+        'rgb(248, 0, 0)',
+        'rgb(255, 0, 0)']
+        
+      
 
       createDonut(votePercentC, CfullName, 'Chair Vote %', 'Chairs', 'pieChairs', partyColors);
     } else if (party == "Republican") {
-      makeTable(chairs);
-
+      makeTable(ranking);
       var partyColors = ['rgb(0,0,233)',
+        'rgb(0,0,229)',
         'rgb(0,0,224)',
         'rgb(0,0,213)',
         'rgb(0,0,209)',
@@ -236,9 +249,14 @@ function fiteredby_party(party) {
         'rgb(0,0,73)',
         'rgb(0,0,66)',
         'rgb(0,0,35)',
+        'rgb(0,0,43)',
+        'rgb(0,0,66)',
+        'rgb(0,0,35)',
         'rgb(0,0,43)'
-
       ]
+      
+
+      var partyColors = 
       createDonut(votePercentR, RfullName, 'Ranking Member %', 'Ranking', 'pieChairs', partyColors);
     } else {
       makeTable(combined);
@@ -530,7 +548,7 @@ const createDonut = function (values, labels, title, ctrTxt, divID, partyColors)
     }],
     height: 400,
     width: 400,
-    margin: {
+    margin: { 
       "t": -15,
       "b": -15,
       "l": 0,

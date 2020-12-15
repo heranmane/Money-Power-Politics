@@ -207,7 +207,7 @@ function fiteredby_party(party) {
       console.log(party)
       makeTable(chairs);
       var partyColors = 
-      ['#F04C4C', '#E84A4B', '#DF4849', '#D74747', '#CE4546', '#C64344', '#BE4242', '#B64041', '#AE3E3F', '#A63C3D', '#9E3B3B', '#96393A', '#8E3738', '#863536', '#7E3334', '#763232', '#6F3030', '#672E2E', '#5F2C2C', '#582A2A']
+      ['#F04C4C', '#E84A4B', '#DF4849', 'green','#D74747', '#CE4546', '#C64344', '#BE4242', '#B64041', '#AE3E3F', '#A63C3D', '#9E3B3B', '#96393A', '#8E3738', '#863536', '#7E3334', '#763232', '#6F3030', '#672E2E', '#5F2C2C', '#582A2A']
 
       createDonut(votePercentC, CfullName, 'Chair Vote %', 'Chairs', 'pieChairs', partyColors);
     } else if (party == "Republican") {
